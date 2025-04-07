@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - Musical Troop</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .confirmation-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #4CAF50; /* Green color for confirmation */
+        }
+        p {
+            font-size: 1.2em;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #4CAF50; /* Green background */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <h1>Booking Completed!</h1>
+        <p>Thank you for your booking with our musical troop!</p>
+        <p>Your booking details are as follows:</p>
+        <ul id="bookingDetails"></ul>
+        <p>We look forward to making your event special!</p>
+        <a href="index.html" class="button">Return to Home</a>
+    </div>
+
+    <script>
+        // Function to get query parameters from the URL
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const regex = /([^&=]+)=([^&]*)/g;
+            let m;
+            while (m = regex.exec(queryString)) {
+                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+            return params;
+        }
+
+        // Display booking details on the confirmation page
+        const bookingDetails = getQueryParams();
+        const bookingList = document.getElementById('bookingDetails');
+        for (const key in bookingDetails) {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${bookingDetails[key]}`;
+            bookingList.appendChild(listItem);
+        }
+    </script
+    
