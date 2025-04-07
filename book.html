@@ -3,65 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Online - Musical Troop</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Book Your Event - Musical Troop</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Book Us Online</h1>
-            <p>Fill out the form below to book our musical troop for your event!</p>
-        </div>
-    </header>
+    <div class="container">
+        <h1>Book Your Event</h1>
+        <form id="bookingForm" onsubmit="return submitForm(event);">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="book.html">Book Online</a></li>
-            <li><a href="free-services.html">Free Services</a></li>
-            <li><a href="about.html">About Us</a></li>
-        </ul>
-    </nav>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
 
-    <main>
-        <section id="booking-form">
-            <h2>Event Booking Form</h2>
-            <form action="#" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="event-date">Event Date:</label>
-                <input type="date" id="event-date" name="event-date" required>
-                
-                <label for="event-type">Type of Event:</label>
-                <select id="event-type" name="event-type" required>
-                    <option value="wedding">Wedding</option>
-                    <option value="party">Party</option>
-                    <option value="corporate">Corporate Event</option>
-                    <option value="concert">Concert</option>
-                    <option value="other">Other</option>
-                </select>
-                
-                <label for="message">Additional Details:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Any specific requests or details..."></textarea>
-                
-                <button type="submit">Submit Booking Request</button>
-            </form>
-        </section>
-    </main>
+            <label for="eventDate">Event Date:</label>
+            <input type="date" id="eventDate" required>
 
-    <footer>
-        <p>&copy; 2024 Musical Troop. All rights reserved.</p>
-        <div class="social">
-            <a href="#"><img src="fb.png" alt="Facebook" height="30"></a>
-            <a href="#"><img src="yt.png" alt="YouTube" height="30"></a>
-            <a href="#"><img src="insta.png" alt="Instagram" height="30"></a>
-        </div>
-    </footer>
+            <label for="location">Event Location:</label>
+            <input type="text" id="location" required>
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" required>
+
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const location = document.getElementById('location').value;
+            const guests = document.getElementById('guests').value;
+
+            // Redirect to confirmation page with query parameters
+            window.location.href = `booking-confirmation.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&eventDate=${encodeURIComponent(eventDate)}&location=${encodeURIComponent(location)}&guests=${encodeURIComponent(guests)}`;
+        }
+    </script>
 </body>
 </html>
