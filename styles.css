@@ -7,7 +7,7 @@ body {
     background-image: url('background.jpg'); /* Add your background image here */
     background-size: cover; /* Cover the entire viewport */
     background-position: center; /* Center the background image */
-    color: #333;
+    color: #333333;
 }
 
 header {
@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-    color: #ffcc00; /* Gold color for subheadings */
+    color: #0011ff; /* Gold color for subheadings */
 }
 
 nav {
@@ -50,7 +50,7 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
-    color: #ffcc00; /* Change color on hover */
+    color: #ff0000; /* Change color on hover */
 }
 
 .container {
@@ -89,13 +89,13 @@ label {
 
 input, select, textarea {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 5px;
     margin-bottom: 15px;
 }
 
 button {
-    background: #ffcc00; /* Gold color for buttons */
+    background: #ff0000; /* Gold color for buttons */
     color: #333;
     border: none;
     padding: 10px;
@@ -105,7 +105,7 @@ button {
 }
 
 button:hover {
-    background: #e6b800; /* Darker gold on hover */
+    background: #e60000; /* Darker gold on hover */
 }
 
 /* Footer Styles */
